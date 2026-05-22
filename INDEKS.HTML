@@ -1,174 +1,181 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculus in Agro-Product Tech: Oil Palm Ripening</title>
-    <!-- Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Tailwind CSS for clean layout -->
+    <title>Calculus in Agro-Product Technology: Oil Palm Biomass</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        .math-block {
-            background-color: #f8fafc;
-            border-left: 4px solid #10b981;
+        body {
+            font-family: 'Inter', sans-serif;
         }
     </style>
 </head>
-<body class="bg-slate-50 font-sans text-slate-800 antialiased">
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
 
-    <div class="max-w-5xl mx-auto px-4 py-8">
-        <!-- Header -->
-        <header class="bg-gradient-to-r from-emerald-700 to-teal-600 text-white rounded-2xl p-6 shadow-lg mb-8">
-            <span class="text-xs font-bold uppercase tracking-widest bg-emerald-800/50 px-3 py-1 rounded-full">SFP: Agro Product Technology</span>
-            <h1 class="text-3xl font-extrabold mt-2">Applying Derivatives to Malaysian Palm Oil Extraction</h1>
-            <p class="text-emerald-100 mt-1 text-sm md:text-base">Interactive App: Optimizing Harvest Windows using $f'(x)$ Rate of Change</p>
-        </header>
+    <header class="bg-emerald-700 text-white py-6 px-4 shadow-md">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <div>
+                <span class="text-xs font-bold uppercase tracking-widest bg-emerald-600 px-3 py-1 rounded-full">SFP: Agro Product Technology Module</span>
+                <h1 class="text-2xl md:text-3xl font-extrabold mt-1">Application of Derivatives $f'(x)$ in Bioscience</h1>
+            </div>
+            <div class="text-right text-sm opacity-90">
+                <p class="font-semibold">Scenario: Malaysian Oil Palm Growth Rates</p>
+                <p class="text-xs">Interactive Calculus Simulator</p>
+            </div>
+        </div>
+    </header>
 
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Left Panel: Problem Context & Formulas -->
-            <div class="lg:col-span-1 space-y-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                    <h2 class="text-lg font-bold text-slate-900 border-b pb-2 mb-3 flex items-center gap-2">
-                        🌱 Bioscience Case Study
-                    </h2>
-                    <p class="text-xs text-slate-600 leading-relaxed mb-3">
-                        In Malaysia's palm oil sector, maximizing the <strong>Oil Extraction Rate (OER)</strong> is the core objective of mills. Oil synthesis in the fruit mesocarp (pulp) escalates drastically after 120 days post-anthesis (flowering). 
-                    </p>
-                    <p class="text-xs text-slate-600 leading-relaxed">
-                        By plotting oil accumulation as a logistic growth curve, we use the <strong>first derivative $f'(x)$</strong> to calculate the precise rate of oil synthesis ($\%/\text{day}$). This tells food tech managers exactly when metabolic synthesis slows down, marking the optimum harvest window before over-ripening and destructive <em>Free Fatty Acid (FFA)</em> buildup begins.
-                    </p>
-                    <div class="mt-3 pt-2 border-t border-slate-100 text-[11px] text-slate-400 italic">
-                        Data parameters adapted from MPOB technical models & academic literature (e.g., Southworth et al.; Siregar et al.).
-                    </div>
-                </div>
+    <main class="max-w-5xl w-full mx-auto p-4 md:p-6 grid grid-cols-1 lg:grid-cols-3 gap-6 flex-grow">
+        
+        <div class="lg:col-span-1 space-y-6">
+            <div class="bg-white p-5 rounded-2xl shadow-xs border border-slate-100">
+                <h2 class="text-xl font-bold text-emerald-800 mb-3 flex items-center gap-2">
+                    🌾 The Bioscience Context
+                </h2>
+                <p class="text-sm leading-relaxed text-slate-600 mb-3">
+                    In Malaysian agro-product industries, predicting the exact optimal harvest time for oil palm (*Elaeis guineensis*) biomass is vital for processing efficiency. 
+                </p>
+                <p class="text-sm leading-relaxed text-slate-600">
+                    While cumulative growth follows an **S-shaped Sigmoid curve**, a manager needs the **derivative $f'(x)$** to know exactly when the tree hits its maximum *speed* of production. This represents peak biological efficiency before growth hits a plateau.
+                </p>
+            </div>
 
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 space-y-4">
-                    <h2 class="text-lg font-bold text-slate-900 border-b pb-2">🧮 Mathematical Modeling</h2>
-                    
-                    <div class="math-block p-3 rounded-lg text-xs">
-                        <span class="font-bold text-emerald-700">Total Oil Content Function $f(x)$:</span>
-                        <div class="font-mono my-1 bg-slate-900 text-emerald-400 p-2 rounded text-center text-xs">
-                            f(x) = L / (1 + e^(-k * (x - x0)))
+            <div class="bg-white p-5 rounded-2xl shadow-xs border border-slate-100">
+                <h2 class="text-xl font-bold text-emerald-800 mb-3">🧮 Mathematical Model</h2>
+                <p class="text-xs text-slate-500 mb-3">A logistic growth model scaled to real-world Malaysian commercial standards (0 to 12 years post-planting).</p>
+                
+                <div class="space-y-4 text-sm bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <div>
+                        <span class="block font-semibold text-slate-700">Cumulative Biomass $f(x)$:</span>
+                        <div class="my-1 font-mono text-emerald-700 text-center text-base bg-white p-2 rounded border border-slate-100 shadow-2xs">
+                            $$f(x) = \frac{35}{1 + e^{-0.8(x - 5.5)}}$$
                         </div>
-                        <p class="text-[11px] text-slate-500 mt-1">
-                            Where Max Oil <span class="font-mono">L = 52%</span>, Growth rate <span class="font-mono">k = 0.12</span>, Mid-point <span class="font-mono">x0 = 130 days</span>.
-                        </p>
+                        <span class="text-xs text-slate-500 block mt-1">Yields total dry biomass weight in tonnes ($t$) per hectare.</span>
                     </div>
 
-                    <div class="math-block p-3 rounded-lg text-xs" style="border-left-color: #3b82f6;">
-                        <span class="font-bold text-blue-700">The Derivative $f'(x)$ (Chain Rule):</span>
-                        <div class="font-mono my-1 bg-slate-900 text-blue-400 p-2 rounded text-center text-xs">
-                            f'(x) = k * f(x) * (1 - f(x)/L)
+                    <hr class="border-slate-200">
+
+                    <div>
+                        <span class="block font-semibold text-slate-700">Instantaneous Growth Rate $f'(x)$:</span>
+                        <div class="my-1 font-mono text-emerald-700 text-center text-base bg-white p-2 rounded border border-slate-100 shadow-2xs">
+                            $$f'(x) = \frac{28e^{-0.8(x - 5.5)}}{(1 + e^{-0.8(x - 5.5)})^2}$$
                         </div>
-                        <p class="text-[11px] text-slate-500 mt-1">
-                            Measures the instantaneous rate of oil production per single day.
-                        </p>
+                        <span class="text-xs text-slate-500 block mt-1">Calculates the precise rate of biomass accumulation in **tonnes/hectare/year** at year $x$.</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Panel: Interactive Chart & Analysis -->
-            <div class="lg:col-span-2 space-y-6">
-                <!-- Interactive Graph Container -->
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-4">
-                        <div>
-                            <h2 class="text-xl font-bold text-slate-900">Interactive Growth & Rate Curve</h2>
-                            <p class="text-xs text-slate-500">Click anywhere inside the chart region to calculate the derivative at that exact day.</p>
-                        </div>
-                        <span class="bg-slate-100 text-slate-700 text-xs px-2.5 py-1 rounded-md font-mono">X-axis: 100 to 160 Days</span>
+            <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100 text-xs text-slate-600">
+                <span class="font-bold text-emerald-800 block mb-1">📊 Reference & Data Baseline:</span>
+                Modeled based on baseline physiological parameters from the **Malaysian Palm Oil Board (MPOB)** webpage *“Oil Palm Biomass Statistics”* and growth dynamics detailed in *“Journal of Oil Palm Research (JOPR)”*.
+            </div>
+        </div>
+
+        <div class="lg:col-span-2 space-y-6 flex flex-col justify-between">
+            <div class="bg-white p-5 rounded-2xl shadow-xs border border-slate-100 flex-grow flex flex-col">
+                <div class="flex justify-between items-center mb-2">
+                    <h2 class="text-xl font-bold text-slate-800">Biomass Growth vs. Time</h2>
+                    <span class="text-xs bg-amber-100 text-amber-800 font-semibold px-2 py-1 rounded">💡 Click inside graph to trace derivative</span>
+                </div>
+                <p class="text-xs text-slate-500 mb-4">The solid green line shows total yield. The derivative tracks how fast it is changing year-on-year.</p>
+                
+                <div class="relative min-h-[300px] md:min-h-[400px] w-full flex-grow">
+                    <canvas id="growthChart"></canvas>
+                </div>
+            </div>
+
+            <div id="outputPanel" class="bg-slate-900 text-white p-5 rounded-2xl transition-all duration-300 shadow-lg border-l-4 border-emerald-500">
+                <div id="placeholderText">
+                    <p class="text-center text-slate-400 text-sm py-2">
+                        🖱️ <strong>Click anywhere on the graph lines above</strong> to run a calculus assessment at that specific timeline point.
+                    </p>
+                </div>
+                
+                <div id="analysisResult" class="hidden">
+                    <div class="flex justify-between items-center border-b border-slate-700 pb-2 mb-3">
+                        <h3 class="font-bold text-emerald-400 text-lg">📊 Analysis at Year <span id="outYear" class="text-white text-xl">0.0</span></h3>
+                        <span class="text-xs uppercase bg-emerald-900 text-emerald-300 font-mono px-2 py-0.5 rounded border border-emerald-700">Calculated Live</span>
                     </div>
                     
-                    <div class="relative w-full h-[320px] sm:h-[400px]">
-                        <canvas id="growthChart"></canvas>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div class="bg-slate-800/50 p-3 rounded-xl">
+                            <p class="text-xs text-slate-400 uppercase">Cumulative Yield $f(x)$</p>
+                            <p class="text-xl font-extrabold text-white"><span id="outYield">0.00</span> <span class="text-xs font-normal text-slate-400">tonnes/ha</span></p>
+                        </div>
+                        <div class="bg-slate-800/50 p-3 rounded-xl">
+                            <p class="text-xs text-emerald-400 uppercase font-semibold">Rate of Change $f'(x)$ [Derivative]</p>
+                            <p class="text-xl font-extrabold text-emerald-400"><span id="outRate">0.00</span> <span class="text-xs font-normal text-slate-400">tonnes/ha/year</span></p>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Click Output Box -->
-                <div id="outputBox" class="bg-gradient-to-br from-slate-900 to-slate-800 text-white p-6 rounded-2xl shadow-md transform transition-all duration-300 scale-100 opacity-100">
-                    <div class="flex items-center justify-between border-b border-slate-700 pb-3 mb-3">
-                        <h3 class="text-sm font-semibold tracking-wide text-emerald-400 uppercase">🔬 Real-Time Calculus Analysis</h3>
-                        <div id="dayBadge" class="bg-emerald-500 text-slate-900 font-black px-3 py-1 rounded-full text-xs">Day 130</div>
-                    </div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div>
-                            <p class="text-xs text-slate-400">Total Mesocarp Oil Content $f(x)$:</p>
-                            <p id="oilValue" class="text-2xl font-bold text-white">26.00%</p>
-                        </div>
-                        <div>
-                            <p class="text-xs text-slate-400">Instantaneous Synthesis Rate $f'(x)$:</p>
-                            <p id="rateValue" class="text-2xl font-bold text-blue-400">+1.56% <span class="text-xs font-normal text-slate-300">oil per day</span></p>
-                        </div>
-                    </div>
-                    <div class="mt-4 pt-3 border-t border-slate-700/50">
-                        <p class="text-xs text-slate-400 font-semibold mb-1">Layman / Agro-Tech Interpretation:</p>
-                        <p id="interpretationText" class="text-xs sm:text-sm text-slate-200 italic leading-relaxed">
-                            At day 130, the oil palm is at absolute peak performance! The cells are converting biological sugars into crude palm oil at the fastest possible rate of 1.56% increase every single day.
+                    <div>
+                        <p class="text-xs text-slate-400 font-bold uppercase mb-1">🌿 Layman Bio-Interpretation:</p>
+                        <p id="outExplanation" class="text-sm text-slate-200 bg-slate-950 p-3 rounded-xl border border-slate-800 leading-relaxed">
+                            --
                         </p>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <footer class="text-center text-xs text-slate-400 mt-12 border-t border-slate-200 pt-4">
-            Agro Product Technology Simulation Application &copy; 2026 • Built with Chart.js
-        </footer>
-    </div>
+    </main>
 
-    <!-- Application Script Logic -->
+    <footer class="bg-slate-100 text-center py-4 border-t border-slate-200 text-xs text-slate-500">
+        Designed for SFP Agro-Product Technology Students • Utilizing Web Interactive Calculus Models
+    </footer>
+
     <script>
-        // Parameters for the Logistic Growth of Tenera Mesocarp Oil Accumulation
-        const L = 52.0;    // Maximum potential oil content percentage in mesocarp
-        const k = 0.12;    // Steepness growth rate coefficient
-        const x0 = 130;    // Inflexion point (Day of peak synthesis speed)
-
-        // Generate Data arrays for 100 to 160 days post-anthesis
-        const days = [];
-        const totalOilData = [];
-        const rateOfChangeData = [];
-
-        for (let x = 100; x <= 160; x++) {
-            days.push(x);
-            
-            // f(x) Logistic Growth Function
-            const fx = L / (1 + Math.exp(-k * (x - x0)));
-            totalOilData.push(Number(fx.toFixed(2)));
-
-            // f'(x) First Derivative Function
-            const dfx = k * fx * (1 - (fx / L));
-            rateOfChangeData.push(Number(dfx.toFixed(3)));
+        // Mathematical Logic Functions
+        // f(x) = 35 / (1 + e^(-0.8 * (x - 5.5)))
+        function f(x) {
+            return 35 / (1 + Math.exp(-0.8 * (x - 5.5)));
         }
 
-        // Initialize Chart.js configuration
+        // f'(x) = (28 * e^(-0.8 * (x - 5.5))) / (1 + Math.exp(-0.8 * (x - 5.5)))^2
+        function f_prime(x) {
+            const expTerm = Math.exp(-0.8 * (x - 5.5));
+            return (28 * expTerm) / Math.pow(1 + expTerm, 2);
+        }
+
+        // Generate data arrays for Chart.js from Year 0 to 12
+        const labels = [];
+        const yieldData = [];
+        const rateData = [];
+
+        for (let x = 0; x <= 12; x += 0.2) {
+            labels.push(x.toFixed(1));
+            yieldData.push(f(x).toFixed(2));
+            rateData.push(f_prime(x).toFixed(2));
+        }
+
+        // Initialize Chart.js
         const ctx = document.getElementById('growthChart').getContext('2d');
         const growthChart = new Chart(ctx, {
             type: 'line',
             data: {
-                labels: days,
+                labels: labels,
                 datasets: [
                     {
-                        label: 'Total Oil Content f(x) (%)',
-                        data: totalOilData,
-                        borderColor: '#10b981',
-                        backgroundColor: 'rgba(16, 185, 129, 0.05)',
+                        label: 'Total Biomass (tonnes/ha)',
+                        data: yieldData,
+                        borderColor: '#059669', // Emerald 600
+                        backgroundColor: 'rgba(5, 150, 105, 0.05)',
                         borderWidth: 3,
-                        yAxisID: 'yTotal',
+                        fill: true,
                         tension: 0.2,
-                        pointRadius: 2,
-                        pointHoverRadius: 6
+                        yAxisID: 'y'
                     },
                     {
-                        label: "Synthesis Speed f'(x) (%/day)",
-                        data: rateOfChangeData,
-                        borderColor: '#3b82f6',
-                        backgroundColor: 'rgba(59, 130, 246, 0.05)',
-                        borderWidth: 2.5,
+                        label: 'Growth Velocity [Derivative] (tonnes/ha/year)',
+                        data: rateData,
+                        borderColor: '#d97706', // Amber 600
+                        borderWidth: 2,
                         borderDash: [5, 5],
-                        yAxisID: 'yRate',
+                        fill: false,
                         tension: 0.2,
-                        pointRadius: 2,
-                        pointHoverRadius: 6
+                        yAxisID: 'y1'
                     }
                 ]
             },
@@ -182,83 +189,86 @@
                 plugins: {
                     legend: {
                         position: 'top',
-                        labels: { font: { size: 11, family: 'sans-serif' } }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            title: (context) => `Day ${context[0].label} Post-Anthesis`
-                        }
+                        labels: { boxWidth: 12, font: { size: 11 } }
                     }
                 },
                 scales: {
                     x: {
-                        title: { display: true, text: 'Days Post-Anthesis (Maturity Status)', font: { weight: 'bold', size: 11 } },
-                        grid: { color: '#f1f5f9' }
+                        title: { display: true, text: 'Years Post-Planting (x)', font: { weight: 'bold' } }
                     },
-                    yTotal: {
+                    y: {
                         type: 'linear',
+                        display: true,
                         position: 'left',
+                        title: { display: true, text: 'Total Cumulative Yield (t/ha)', font: { weight: 'bold' } },
                         min: 0,
-                        max: 60,
-                        title: { display: true, text: 'Total Oil Percentage (%)', font: { weight: 'bold', size: 11 } },
-                        ticks: { callback: value => value + '%' }
+                        max: 40
                     },
-                    yRate: {
+                    y1: {
                         type: 'linear',
+                        display: true,
                         position: 'right',
+                        title: { display: true, text: 'Growth Velocity (t/ha/year)', font: { weight: 'bold' } },
                         min: 0,
-                        max: 2,
-                        title: { display: true, text: 'Rate of Accumulation (% / Day)', font: { weight: 'bold', size: 11 } },
-                        grid: { drawOnChartArea: false },
-                        ticks: { callback: value => value + '%' }
+                        max: 8,
+                        grid: { drawOnChartArea: false } // Avoid cluttering grid lines
                     }
                 },
-                // Trigger action when users click points on the graph canvas
+                // Trigger action on canvas click
                 onClick: (e) => {
                     const points = growthChart.getElementsAtEventForMode(e, 'index', { intersect: false }, true);
-                    if (points.length > 0) {
+                    if (points.length) {
                         const index = points[0].index;
-                        const activeDay = days[index];
-                        const activeOil = totalOilData[index];
-                        const activeRate = rateOfChangeData[index];
-                        
-                        updateAnalysisUI(activeDay, activeOil, activeRate);
+                        const year = parseFloat(labels[index]);
+                        updateAnalysis(year);
                     }
                 }
             }
         });
 
-        // Function to dynamically rewrite the analysis block based on the calculated derivative
-        function updateAnalysisUI(day, oil, rate) {
-            document.getElementById('dayBadge').innerText = `Day ${day}`;
-            document.getElementById('oilValue').innerText = `${oil.toFixed(2)}%`;
-            document.getElementById('rateValue').innerText = `+${rate.toFixed(2)}% oil/day`;
+        // Function to handle layout calculation and contextual bioscience text update
+        function updateAnalysis(year) {
+            const calculatedYield = f(year);
+            const calculatedRate = f_prime(year);
 
-            let laymanText = "";
+            // Populate UI Values
+            document.getElementById('outYear').innerText = year.toFixed(1);
+            document.getElementById('outYield').innerText = calculatedYield.toFixed(2);
+            document.getElementById('outRate').innerText = calculatedRate.toFixed(2);
 
-            if (day < 115) {
-                laymanText = `<strong>Early Phase (Under-ripe):</strong> Total oil content is very low at ${oil}%. The derivative value ($f'(x) = ${rate}\%/\text{day}$) confirms that fat conversion has barely started. Harvesting right now would completely wreck your processing facility's Oil Extraction Rate (OER).`;
-            } else if (day >= 115 && day < 126) {
-                laymanText = `<strong>Acceleration Phase:</strong> Total oil content is scaling up. Notice how the derivative curve is surging upward! The oil production rate has risen to ${rate}% per day, indicating the fruit's metabolism is transitioning into overdrive.`;
-            } else if (day >= 126 && day <= 134) {
-                laymanText = `<strong>Inflection Point (Optimal Window):</strong> At day ${day}, the derivative curve peaks! This is where $f'(x)$ achieves its maximum speed of ${rate}% daily growth. The fruit's cells are operating as highly efficient oil factories. Harvesting should be scheduled immediately.`;
-            } else if (day > 134 && day <= 148) {
-                laymanText = `<strong>Deceleration Phase (Fully Mature):</strong> Total oil content is very high (${oil}%), but the derivative value has slipped back down to ${rate}% per day. This math means the fruit is almost saturated; it is still gaining oil, but the *speed* of production is dying down.`;
+            // Generate Context-Driven Agro-Product Explanations
+            let laymanExplanation = "";
+
+            if (year < 3.5) {
+                laymanExplanation = `At Year ${year.toFixed(1)}, the oil palm tree is in its early vegetative settling stage. The derivative is small (${calculatedRate.toFixed(2)} t/ha/yr) because most energy goes to root deployment. Processing mills shouldn't look for viable processing material yet; raw biomass generation is ticking up slowly.`;
+            } else if (year >= 3.5 && year <= 7) {
+                if (Math.abs(year - 5.5) <= 0.3) {
+                    laymanExplanation = `💥 INFLECTION POINT REACHED! At Year ${year.toFixed(1)}, the derivative hits its absolute mathematical maximum at ~7.00 tonnes/ha/year. This means the tree is stacking on weight faster than at any other point in its life. For an agro-factory manager, this is the phase of peak cellular synthesis.`;
+                } else {
+                    laymanExplanation = `The oil palm is in its high-speed production sprint phase. The derivative is elevated at ${calculatedRate.toFixed(2)} tonnes/ha/year, meaning cell walls and fiber are packing on aggressively. Total available biomass is growing explosively.`;
+                }
             } else {
-                laymanText = `<strong>Asymptote Phase (Over-ripe Warning):</strong> The derivative $f'(x)$ drops near zero (${rate}%/day) because the growth curve is completely flat. The fruit has reached its genetic maximum capacity of ${oil}%. Leaving it on the tree any longer will invite microbial rancidity, causing Free Fatty Acids (FFA) to spike beyond the 5% export limit.`;
+                laymanExplanation = `At Year ${year.toFixed(1)}, the system enters a biological plateau. Notice that while total biomass is at its absolute highest (${calculatedYield.toFixed(1)} t/ha), the derivative has dropped down to ${calculatedRate.toFixed(2)} t/ha/yr. The tree has aged out of active growth and is simply maintaining itself. Harvesting older fields presents steady volume but stagnant growth replacement.`;
             }
 
-            const outputContainer = document.getElementById('outputBox');
-            document.getElementById('interpretationText').innerHTML = laymanText;
+            document.getElementById('outExplanation').innerHTML = laymanExplanation;
+
+            // Display panel and hide placeholder
+            document.getElementById('placeholderText').classList.add('hidden');
+            document.getElementById('analysisResult').classList.remove('hidden');
             
-            // Visual bounce feedback effect
-            outputContainer.classList.remove('scale-100');
-            outputContainer.classList.add('scale-[1.02]');
+            // Subtle flash highlight animation for dynamic response feedback
+            const panel = document.getElementById('outputPanel');
+            panel.classList.remove('border-emerald-500');
+            panel.classList.add('border-amber-400');
             setTimeout(() => {
-                outputContainer.classList.remove('scale-[1.02]');
-                outputContainer.classList.add('scale-100');
-            }, 150);
+                panel.classList.remove('border-amber-400');
+                panel.classList.add('border-emerald-500');
+            }, 300);
         }
     </script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
 </html>
